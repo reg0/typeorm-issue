@@ -22,7 +22,10 @@ export class Photo {
   @Column()
   url: string;
 
-  @OneToOne(() => User, (user) => user.profilePicture, { nullable: false })
+  @OneToOne(() => User, (user) => user.profilePicture, {
+    nullable: false,
+    createForeignKeyConstraints: false,
+  })
   @JoinColumn({ name: "user_id" })
   user: User;
 }
