@@ -5,10 +5,12 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
   Column,
+  Unique,
 } from "typeorm";
 import { User } from "./User";
 
 @Entity()
+@Unique(["user.id", "deletedAt"])
 export class Photo {
   @PrimaryGeneratedColumn()
   id: number;
